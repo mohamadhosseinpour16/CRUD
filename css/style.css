@@ -14,7 +14,7 @@
 }
 * {
   box-sizing: border-box;
-  font-family: iran;
+  font-family: iran, cursive;
 }
 body {
   background-color: var(--color-1--);
@@ -41,4 +41,31 @@ header > nav > button {
   cursor: pointer;
   padding: 0.5rem 1.5rem;
   margin: 0 0.2rem;
+}
+main {
+  width: 60%;
+  margin: 4rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main > table {
+  padding: 0.5rem;
+  border: 2px solid var(--color-black--);
+}
+main > table tr > th {
+  padding: 0.5rem 2rem;
+  text-align: right;
+  font-size: 1.1rem;
+}
+#uniqe {
+  border-bottom: 2px solid var(--color-black--);
+}
+main > table tr > td {
+  text-align: center;
+}
+main > table tr > td > i {
+  cursor: pointer;
+  padding: 0 0.1rem;
+  font-size: 1.1rem;
 }
