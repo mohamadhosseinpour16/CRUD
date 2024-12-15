@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- header -->
     <header>
         <section>
             <h1>
@@ -21,22 +22,52 @@
             </h1>
         </section>
         <nav>
-            <button class="hvr-wobble-skew">افزودن</button>
+            <button class="hvr-wobble-skew" id="add-btn">افزودن</button>
             <button class="hvr-wobble-skew">جستجو</button>
         </nav>
     </header>
+    <!--table  -->
     <main>
         <table>
-            <tr>
-                <th id="uniqe">ردیف</th>
-                <th>نام</th>
-                <th>نام خانوادگی</th>
-                <th>کدملی</th>
-                <th>عملیات</th>
-            </tr>
-            <!-- data -->
+            <thead>
+                <tr>
+                    <th id="uniqe">ردیف</th>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>کدملی</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody id="root">
+                <!-- data -->
+            </tbody>
         </table>
     </main>
+    <!-- modal -->
+    <section id="modal">
+        <main>
+            <div>
+                <lable>نام :</lable>
+                <lable>نام خانوادگی :</lable>
+                <lable>کد ملی :</lable>
+            </div>
+            <div>
+                <input type="text" id="name">
+                <input type="text" id="family">
+                <input type="number" id="nationalcode">
+            </div>
+        </main>
+        <aside>
+            <div>
+                <button class="hvr-wobble-skew" id="add-modal-btn">
+                    افزودن
+                </button>
+                <button class="hvr-wobble-skew" id="close-modal-btn">
+                    بستن
+                </button>
+            </div>
+        </aside>
+    </section>
 </body>
 
 </html>
