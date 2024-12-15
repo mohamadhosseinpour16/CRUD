@@ -2,12 +2,16 @@
 let root = document.getElementById("root");
 let addModal = document.getElementById("add-modal");
 let searchModal = document.getElementById("search-modal");
+let editModal = document.getElementById("edit-modal");
+let editUserCondiate = null;
 // buttons
 let addBtn = document.getElementById("add-btn");
 let addModalBtn = document.getElementById("add-modal-btn");
 let closeBtn = document.getElementById("close-modal-btn");
 let searchBtn = document.getElementById("search-btn");
-let close_search_modal_btn = document.getElementById("close-search-modal-btn");
+let closeSearchModalBtn = document.getElementById("close-search-modal-btn");
+let editBtn = document.getElementById("edit-modal-btn");
+let closeEditModalBtn = document.getElementById("close-edit-modal-btn");
 
 // inputs
 let inputs = document.querySelectorAll("input");
@@ -16,6 +20,11 @@ const createFormFields = {
   name: document.getElementById("name"),
   family: document.getElementById("family"),
   nationalCode: document.getElementById("nationalcode"),
+};
+const editFormFields = {
+  name: document.getElementById("edit-name"),
+  family: document.getElementById("edit-family"),
+  nationalCode: document.getElementById("edit-nationalcode"),
 };
 
 // functions
@@ -30,8 +39,8 @@ function renderData(List) {
                 <td>${family}</td>
                 <td>${nationalCode}</td>
                 <td>
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    <i  onClick="removeUser(${id})" class="fa-solid fa-trash"></i>
+                    <i onClick="openEditModal(${id})" class="fa-solid fa-pen-to-square"></i>
+                    <i onClick="removeUser(${id})" class="fa-solid fa-trash"></i>
                 </td>
             </tr>
         `;
@@ -71,7 +80,7 @@ function addUser() {
 function openModalSearch() {
   searchModal.classList.add("show");
 }
-function closeEditModal() {
+function closeSearchModal() {
   searchModal.classList.remove("show");
   inputEmpty();
 }
@@ -92,10 +101,37 @@ function removeUser(id) {
   data.splice(userIndex, 1);
   renderData(data);
 }
+// edit
+function openEditModal(id) {
+  editModal.classList.add("show");
+  const selectedUser = data.find((item) => item.id === id);
+  editFormFields.name.value = selectedUser.name;
+  editFormFields.family.value = selectedUser.family;
+  editFormFields.nationalCode.value = selectedUser.nationalCode;
+  editUserCondiate = selectedUser;
+}
+function closeModalEdit() {
+  editModal.classList.remove("show");
+}
+function editUser() {
+  const updateUser = {
+    name: editFormFields.name.value,
+    family: editFormFields.family.value,
+    nationalCode: editFormFields.nationalCode.value,
+    id: editUserCondiate.id,
+  };
+  const userIndex = data.findIndex((item) => item.id === editUserCondiate.id);
+  data.splice(userIndex, 1, updateUser);
+  renderData(data);
+  closeModalEdit();
+  inputEmpty();
+}
 // events
 window.addEventListener("load", renderData(data));
 addBtn.addEventListener("click", openModal);
 closeBtn.addEventListener("click", closeModal);
 addModalBtn.addEventListener("click", addUser);
 searchBtn.addEventListener("click", openModalSearch);
-close_search_modal_btn.addEventListener("click", closeEditModal);
+closeSearchModalBtn.addEventListener("click", closeSearchModal);
+editBtn.addEventListener("click", editUser);
+closeEditModalBtn.addEventListener("click", closeModalEdit);

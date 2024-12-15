@@ -71,6 +71,7 @@ main > table > tbody tr > td {
 }
 main > table > tbody tr > td i {
   cursor: pointer;
+  padding: 0.2rem;
 }
 /* add modal */
 #add-modal {
@@ -189,5 +190,71 @@ main > table > tbody tr > td i {
   display: flex;
   transform: translate(-50%, -50%);
   top: 80%;
+  left: 50%;
+}
+/* edit */
+#edit-modal {
+  background-color: var(--color-4--);
+  box-shadow: var(--shadow--);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  height: 250px;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  position: absolute;
+  transform: translate(-50%, 0);
+  top: 100%;
+  left: 50%;
+  display: none;
+}
+#edit-modal > main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+#edit-modal > main > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+#edit-modal > main > div > lable {
+  padding: 0.2rem;
+}
+#edit-modal > main > div > input {
+  outline: none;
+  border: none;
+  margin: 0.3rem;
+}
+#edit-modal > aside {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 50%;
+  height: 100%;
+  padding: 0.5rem;
+}
+#edit-modal > aside > div > button {
+  background-color: var(--color-4--);
+  border: 2px solid var(--color-black--);
+  outline: none;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  margin: 0 0.2rem;
+}
+#edit-modal.show {
+  display: flex;
+  transform: translate(-50%, -50%);
+  top: 75%;
   left: 50%;
 }
