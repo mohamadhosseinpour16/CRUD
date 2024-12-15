@@ -31,7 +31,7 @@ function renderData(List) {
                 <td>${nationalCode}</td>
                 <td>
                     <i class="fa-solid fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash"></i>
+                    <i  onClick="removeUser(${id})" class="fa-solid fa-trash"></i>
                 </td>
             </tr>
         `;
@@ -86,7 +86,12 @@ function serchUser(e) {
     renderData(data);
   }
 }
-
+// remove
+function removeUser(id) {
+  const userIndex = data.find((item) => item.id === id);
+  data.splice(userIndex, 1);
+  renderData(data);
+}
 // events
 window.addEventListener("load", renderData(data));
 addBtn.addEventListener("click", openModal);
