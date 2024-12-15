@@ -23,7 +23,7 @@
         </section>
         <nav>
             <button class="hvr-wobble-skew" id="add-btn">افزودن</button>
-            <button class="hvr-wobble-skew">جستجو</button>
+            <button class="hvr-wobble-skew" id="search-btn">جستجو</button>
         </nav>
     </header>
     <!--table  -->
@@ -43,8 +43,8 @@
             </tbody>
         </table>
     </main>
-    <!-- modal -->
-    <section id="modal">
+    <!-- add modal -->
+    <section id="add-modal">
         <main>
             <div>
                 <lable>نام :</lable>
@@ -66,6 +66,17 @@
                     بستن
                 </button>
             </div>
+        </aside>
+    </section>
+    <!-- search modal -->
+    <section id="search-modal">
+        <main>
+            <input type="text" onkeyup="serchUser(event)">
+        </main>
+        <aside>
+            <button class="hvr-wobble-skew" id="close-search-modal-btn">
+                بستن
+            </button>
         </aside>
     </section>
 </body>

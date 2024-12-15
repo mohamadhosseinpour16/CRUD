@@ -72,8 +72,8 @@ main > table > tbody tr > td {
 main > table > tbody tr > td i {
   cursor: pointer;
 }
-/* modal */
-#modal {
+/* add modal */
+#add-modal {
   background-color: var(--color-3--);
   box-shadow: var(--shadow--);
   display: flex;
@@ -91,7 +91,7 @@ main > table > tbody tr > td i {
   left: 50%;
   display: none;
 }
-#modal > main {
+#add-modal > main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -101,21 +101,21 @@ main > table > tbody tr > td i {
   margin: 0;
   padding: 1.5rem 0;
 }
-#modal > main > div {
+#add-modal > main > div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
-#modal > main > div > lable {
+#add-modal > main > div > lable {
   padding: 0.2rem;
 }
-#modal > main > div > input {
+#add-modal > main > div > input {
   outline: none;
   border: none;
   margin: 0.3rem;
 }
-#modal > aside {
+#add-modal > aside {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -124,7 +124,7 @@ main > table > tbody tr > td i {
   height: 100%;
   padding: 0.5rem;
 }
-#modal > aside > div > button {
+#add-modal > aside > div > button {
   background-color: var(--color-3--);
   border: 2px solid var(--color-black--);
   outline: none;
@@ -132,9 +132,62 @@ main > table > tbody tr > td i {
   padding: 0.3rem 0.5rem;
   margin: 0 0.2rem;
 }
-#modal.show {
+#add-modal.show {
   display: flex;
   transform: translate(-50%, -50%);
-  top: 40%;
+  top: 75%;
+  left: 50%;
+}
+/* search modal */
+#search-modal {
+  background-color: var(--color-3--);
+  box-shadow: var(--shadow--);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 1rem;
+  width: 30%;
+  height: 200px;
+  border-radius: 0.5rem;
+  z-index: 1000;
+  position: absolute;
+  transform: translate(-50%, 0);
+  top: 100%;
+  left: 50%;
+  display: none;
+}
+#search-modal > main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+}
+#search-modal > main > input {
+  outline: none;
+  border: none;
+  margin: 0.3rem;
+  width: 100%;
+}
+#search-modal > aside {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+#search-modal > aside > button {
+  background-color: var(--color-3--);
+  border: 2px solid var(--color-black--);
+  outline: none;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  margin: 0 0.2rem;
+}
+#search-modal.show {
+  display: flex;
+  transform: translate(-50%, -50%);
+  top: 80%;
   left: 50%;
 }

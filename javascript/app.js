@@ -1,12 +1,16 @@
 // select dom , var
 let root = document.getElementById("root");
-let modal = document.getElementById("modal");
+let addModal = document.getElementById("add-modal");
+let searchModal = document.getElementById("search-modal");
 // buttons
 let addBtn = document.getElementById("add-btn");
 let addModalBtn = document.getElementById("add-modal-btn");
 let closeBtn = document.getElementById("close-modal-btn");
+let searchBtn = document.getElementById("search-btn");
+let close_search_modal_btn = document.getElementById("close-search-modal-btn");
+
 // inputs
-let inputs = document.querySelectorAll("input")
+let inputs = document.querySelectorAll("input");
 // object
 const createFormFields = {
   name: document.getElementById("name"),
@@ -34,13 +38,21 @@ function renderData(List) {
   }).join("");
   root.innerHTML = template;
 }
+// input empty
+function inputEmpty() {
+  for (const input of inputs) {
+    input.value = "";
+  }
+}
 // open Modal
 const openModal = () => {
-  modal.classList.add("show");
+  addModal.classList.add("show");
 };
 // close Modal
 const closeModal = () => {
-  modal.classList.remove("show");
+  addModal.classList.remove("show");
+  renderData(data);
+  inputEmpty();
 };
 // add
 function addUser() {
@@ -53,12 +65,32 @@ function addUser() {
   data.push(user);
   renderData(data);
   closeModal();
-  for (const input of inputs) {
-    input.value = "";
+  inputEmpty();
+}
+// search
+function openModalSearch() {
+  searchModal.classList.add("show");
+}
+function closeEditModal() {
+  searchModal.classList.remove("show");
+  inputEmpty();
+}
+function serchUser(e) {
+  let value = e.target.value;
+  if (value) {
+    let users = data.filter(
+      (user) => user.name.search(value) > -1 || user.family.search(value) > -1
+    );
+    renderData(users);
+  } else {
+    renderData(data);
   }
 }
+
 // events
 window.addEventListener("load", renderData(data));
 addBtn.addEventListener("click", openModal);
 closeBtn.addEventListener("click", closeModal);
 addModalBtn.addEventListener("click", addUser);
+searchBtn.addEventListener("click", openModalSearch);
+close_search_modal_btn.addEventListener("click", closeEditModal);
