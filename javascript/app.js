@@ -1,9 +1,13 @@
 // select dom , var
 let root = document.getElementById("root");
-let addBtn = document.getElementById("add-btn");
 let modal = document.getElementById("modal");
-let closeBtn = document.getElementById("close-modal-btn");
+// buttons
+let addBtn = document.getElementById("add-btn");
 let addModalBtn = document.getElementById("add-modal-btn");
+let closeBtn = document.getElementById("close-modal-btn");
+// inputs
+let inputs = document.querySelectorAll("input")
+// object
 const createFormFields = {
   name: document.getElementById("name"),
   family: document.getElementById("family"),
@@ -11,6 +15,7 @@ const createFormFields = {
 };
 
 // functions
+// renderData
 function renderData(List) {
   let template = List.map((item) => {
     const { id, name, family, nationalCode } = item;
@@ -52,10 +57,6 @@ function addUser() {
     input.value = "";
   }
 }
-// edit
-
-// delete
-
 // events
 window.addEventListener("load", renderData(data));
 addBtn.addEventListener("click", openModal);
